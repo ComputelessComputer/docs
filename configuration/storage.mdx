@@ -33,20 +33,16 @@ Once your Anarlog vault is pointed at an Obsidian vault, every new session note 
 
 ## Audio file retention
 
-**Setting key:** `audio_retention`
-
 By default, Anarlog keeps audio recordings indefinitely. You can change this to have recordings deleted automatically after a set period, which is useful for managing disk space.
 
 | Option | Behavior |
 |---|---|
-| **Don't save** | Audio is discarded immediately after the session ends — it is never written to disk permanently |
+| **Don't save** | Audio is never written to disk — it is discarded as soon as the session ends |
 | **1 day** | Recording is deleted automatically 24 hours after the session |
 | **3 days** | Recording is deleted automatically after 3 days |
 | **1 week** | Recording is deleted automatically after 7 days |
 | **1 month** | Recording is deleted automatically after 30 days |
 | **Forever** *(default)* | Recording is kept until you delete it manually |
-
-Setting retention to **Don't save** also sets `save_recordings` to `false` internally, which means no audio file is ever written to your vault.
 
 <Tip>
   If disk space is a concern, **1 week** is a good middle ground. Your Markdown notes and full transcripts are never affected by this setting — only the raw audio files are deleted.
