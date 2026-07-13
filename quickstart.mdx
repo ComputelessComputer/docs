@@ -1,47 +1,62 @@
 ---
-title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+title: "Get Started with Anarlog in 5 Minutes"
+sidebarTitle: "Quickstart"
+description: "Download Anarlog, grant audio permissions, connect an AI provider, and record your first meeting note in under five minutes."
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
+This guide walks you through everything you need to go from a fresh download to a saved, AI-summarized meeting note. The whole process takes under five minutes, and you can start capturing transcripts right away even before you connect an AI provider.
 
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
-
-## Prerequisites
-
-Before you begin, you must have:
-
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
+<Note>
+  Anarlog runs on macOS only — Apple Silicon (aarch64) and Intel (x86_64) are both supported. Linux and Windows are not available.
+</Note>
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
+  <Step title="Download Anarlog">
+    Go to the [latest release on GitHub](https://github.com/fastrepl/anarlog/releases/latest) and download the build that matches your Mac:
 
-    ```bash
-    npm install your-package
-    ```
+    - **Apple Silicon (M1, M2, M3, M4)** — download the `aarch64` `.dmg` file.
+    - **Intel Mac** — download the `x86_64` `.dmg` file.
+
+    Not sure which chip you have? Click the Apple menu → **About This Mac**. The processor line will say either "Apple M…" or "Intel".
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
 
-    ```bash
-    your-cli init
-    ```
+  <Step title="Grant audio permissions">
+    Anarlog needs two macOS permissions before it can capture any audio:
+
+    - **Microphone** — lets Anarlog hear your voice.
+    - **Screen Recording** — lets Anarlog access system audio from Zoom, Google Meet, Teams, and other apps. macOS gates system audio behind this permission.
+
+    On first launch the onboarding screen will prompt you for both. Click **Allow access** for each. If macOS asks for confirmation in a system dialog, click **Allow** there too. Anarlog moves to the next step automatically once both permissions are granted.
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
 
-    ```bash
-    your-cli start
-    ```
+  <Step title="Connect an AI provider">
+    Open **Settings → Intelligence** to choose how Anarlog transcribes and summarizes your meetings.
+
+    - **Transcription provider** — select a local model (Whisper, runs entirely on-device) or a cloud service such as Deepgram, AssemblyAI, or OpenAI. Paste your API key into the field provided.
+    - **LLM provider** — select the model that generates your AI summaries. Options include OpenAI, Anthropic, Google Gemini, OpenRouter, Ollama, LM Studio, or any OpenAI-compatible endpoint. For a fully local and free setup, choose **Ollama** and point it at a running Ollama instance on your machine.
+
+    <Tip>
+      You can skip this step entirely and use Anarlog for transcription only. Recording and saving transcripts works without any AI provider configured. You can add a provider later whenever you're ready to generate summaries.
+    </Tip>
+  </Step>
+
+  <Step title="Create your first meeting note">
+    Once onboarding is complete, you'll see the main Anarlog window:
+
+    1. In the left sidebar, click the **+** button to create a new session. Give it a name, or let Anarlog fill it in from your calendar.
+    2. Join your meeting (or start one) in whatever app you normally use — Zoom, Google Meet, Teams, a FaceTime call, or just a conversation in the same room.
+    3. Click the **Listen** button (the microphone icon) in the Anarlog toolbar. The waveform animation confirms that audio capture is active.
+    4. Talk. Anarlog transcribes in real time and displays the rolling transcript in the editor panel.
+    5. When the meeting ends, click **Listen** again to stop recording.
+  </Step>
+
+  <Step title="Generate your AI summary">
+    After recording stops, your transcript is already saved as a Markdown file on disk. To generate a structured AI summary:
+
+    1. Click the **Enhance** button at the top of the editor panel.
+    2. Anarlog sends the transcript to your configured LLM and writes the summary back into the same file — headings, action items, and key points included.
+    3. The finished note is a standard `.md` file. Open it in any Markdown editor, sync it with iCloud or Dropbox, or commit it to a git repository.
+
+    That's it — your first Anarlog meeting note is ready.
   </Step>
 </Steps>
-
-<Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
-
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
-</Tip>

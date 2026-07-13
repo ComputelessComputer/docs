@@ -1,0 +1,74 @@
+---
+title: "Storage and Vault Settings in Anarlog"
+sidebarTitle: "Storage"
+description: "Choose where Anarlog saves your meeting notes and recordings, set audio retention policy, and connect an Obsidian vault."
+---
+
+Anarlog is a local-first app — everything it produces stays on your Mac. Every session note is written as a plain Markdown file inside a **vault folder** that you choose. There is no cloud sync by default, so you remain in full control of your data at all times. The Storage settings let you pick that folder, connect an Obsidian vault, and decide how long raw audio recordings are kept before they are deleted automatically.
+
+## Vault folder
+
+The vault is the root directory where Anarlog writes all your meeting notes. Inside it, Anarlog creates a `sessions/` subdirectory and stores each meeting as its own folder containing:
+
+- A `.md` Markdown file with the transcript, AI-generated summary, and any notes you add
+- The raw audio recording (kept according to your retention policy — see below)
+
+To set or change your vault location, open **Settings → Storage** and click **Change folder**. A system file picker will open so you can navigate to any folder on your Mac. You can change the vault path at any time; existing sessions in the old location are not moved automatically.
+
+<Note>
+  The path shown in the vault field is the full path to the root folder. Anarlog always writes sessions inside a `sessions/` subdirectory within that root, so it will not clutter the top level of a folder you use for other things.
+</Note>
+
+## Obsidian integration
+
+If you use [Obsidian](https://obsidian.md/), Anarlog can write notes directly into one of your existing vaults so they appear immediately in Obsidian's graph and search.
+
+Anarlog automatically scans your Mac for local Obsidian vaults and lists any it finds under **Detected Obsidian vaults**. Click a vault in that list to set it as your Anarlog vault folder in one step — no manual path entry required.
+
+Once your Anarlog vault is pointed at an Obsidian vault, every new session note appears in Obsidian as a regular Markdown file. You can link to it, tag it, and reference it from other notes just like any file you created by hand.
+
+<Tip>
+  Place your Anarlog sessions folder inside your Obsidian vault but in a dedicated subdirectory (for example `Meetings/`) so it stays organized alongside your other notes.
+</Tip>
+
+## Audio file retention
+
+**Setting key:** `audio_retention`
+
+By default, Anarlog keeps audio recordings indefinitely. You can change this to have recordings deleted automatically after a set period, which is useful for managing disk space.
+
+| Option | Behavior |
+|---|---|
+| **Don't save** | Audio is discarded immediately after the session ends — it is never written to disk permanently |
+| **1 day** | Recording is deleted automatically 24 hours after the session |
+| **3 days** | Recording is deleted automatically after 3 days |
+| **1 week** | Recording is deleted automatically after 7 days |
+| **1 month** | Recording is deleted automatically after 30 days |
+| **Forever** *(default)* | Recording is kept until you delete it manually |
+
+Setting retention to **Don't save** also sets `save_recordings` to `false` internally, which means no audio file is ever written to your vault.
+
+<Tip>
+  If disk space is a concern, **1 week** is a good middle ground. Your Markdown notes and full transcripts are never affected by this setting — only the raw audio files are deleted.
+</Tip>
+
+<Note>
+  Deleting or not saving audio does **not** delete the transcript or AI-generated notes. Those are stored in the Markdown file and are kept permanently regardless of your audio retention setting.
+</Note>
+
+## Session file structure
+
+Each meeting Anarlog records creates a folder inside `sessions/` in your vault. A typical vault looks like this:
+
+```
+your-vault/
+└── sessions/
+    ├── 2025-01-15-team-standup/
+    │   ├── note.md
+    │   └── audio.m4a
+    └── 2025-01-16-product-review/
+        ├── note.md
+        └── audio.m4a
+```
+
+The `.md` file contains the full transcript, AI summary, and any manual notes. The audio file follows the retention policy you set. If you chose **Don't save**, no audio file is written at all.

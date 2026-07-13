@@ -1,0 +1,102 @@
+---
+title: "Connect Your Calendar to Anarlog"
+sidebarTitle: "Calendar"
+description: "Sync Google Calendar, Apple Calendar, or Outlook with Anarlog to create meeting-backed notes automatically tied to your calendar events."
+---
+
+Connecting your calendar lets Anarlog pre-populate new notes with the meeting title, attendee list, and scheduled time — so your note is ready before the first word is spoken. Upcoming events appear directly in your sidebar, and Anarlog can automatically start recording the moment a meeting begins.
+
+Anarlog supports three calendar providers: **Apple Calendar** (via native macOS permission), **Google Calendar** (via OAuth), and **Outlook / Microsoft 365** (via OAuth).
+
+## Connect your calendar
+
+<Tabs>
+  <Tab title="Apple Calendar">
+    Apple Calendar is built into macOS and requires a one-time system permission grant. No sign-in is needed.
+
+    <Steps>
+      <Step title="Open Settings">
+        In Anarlog, open **Settings** and navigate to the **Calendar** tab.
+      </Step>
+      <Step title="Grant permission">
+        Click **Apple** to trigger the macOS calendar permission prompt. Select **Allow** when macOS asks whether Anarlog can access your calendar data.
+
+        If you previously denied the permission, you can reset it from the troubleshooting link that appears below the button, or go to **System Settings → Privacy & Security → Calendars** and enable Anarlog there.
+      </Step>
+      <Step title="Choose which calendars to display">
+        After permission is granted, a list of your Apple Calendar accounts and calendars appears. Toggle each calendar on or off to control which events show up in Anarlog.
+      </Step>
+    </Steps>
+  </Tab>
+
+  <Tab title="Google Calendar">
+    Google Calendar connects through OAuth. You'll need an Anarlog account and an active Pro subscription to use Google Calendar sync.
+
+    <Steps>
+      <Step title="Open Settings">
+        In Anarlog, open **Settings** and navigate to the **Calendar** tab.
+      </Step>
+      <Step title="Connect with Google">
+        Click **Connect Google Calendar**. If you aren't signed into your Anarlog account yet, you'll be prompted to sign in first.
+      </Step>
+      <Step title="Sign in to Google">
+        A browser window opens with the Google OAuth consent screen. Sign into the Google account you want to connect and grant the requested read-only calendar permissions.
+      </Step>
+      <Step title="Choose which calendars to display">
+        Once connected, your Google calendars appear in Anarlog. Toggle individual calendars on or off to filter which events are shown.
+      </Step>
+      <Step title="Add more accounts (optional)">
+        To add a second Google account, click **Add another account** in the Calendar settings and repeat the OAuth flow.
+      </Step>
+    </Steps>
+  </Tab>
+
+  <Tab title="Outlook (Microsoft 365)">
+    Outlook / Microsoft 365 connects through OAuth. You'll need an Anarlog account and an active Pro subscription to use Outlook calendar sync.
+
+    <Steps>
+      <Step title="Open Settings">
+        In Anarlog, open **Settings** and navigate to the **Calendar** tab.
+      </Step>
+      <Step title="Connect with Microsoft">
+        Click **Connect Outlook**. If you aren't signed into your Anarlog account yet, you'll be prompted to sign in first.
+      </Step>
+      <Step title="Sign in to Microsoft">
+        A browser window opens with the Microsoft OAuth consent screen. Sign into the Microsoft account you want to connect and grant the requested read-only calendar permissions.
+      </Step>
+      <Step title="Choose which calendars to display">
+        After connecting, your Outlook calendars appear in Anarlog. Toggle individual calendars on or off to filter which events are shown.
+      </Step>
+      <Step title="Add more accounts (optional)">
+        To add a second Microsoft account, click **Add another account** in the Calendar settings and repeat the OAuth flow.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## What calendar data Anarlog uses
+
+When Anarlog reads an event from your calendar, it pulls:
+
+| Field | How it's used |
+|---|---|
+| **Event title** | Pre-fills the note title |
+| **Start and end time** | Shown in the note header; used to trigger auto-recording |
+| **Attendees** | Pre-populates the participants list in the note |
+| **Meeting link** | Zoom, Google Meet, and Microsoft Teams links are detected and surfaced automatically |
+
+## Calendar-backed notes
+
+Every event in your upcoming list can be opened as a note before, during, or after the meeting. Click any event in the sidebar to create or open its note. The note is pre-filled with the event details so you can add an agenda, jot down context, or start typing the moment the call begins.
+
+If you enable **Auto-start recording** in **Settings → General**, Anarlog will begin recording your microphone (and system audio, if permitted) automatically when the event's start time is reached — no manual action required.
+
+## Multiple calendar accounts
+
+You can connect multiple accounts of any type. For example, you can have Apple Calendar active alongside two separate Google accounts and one Outlook account simultaneously. Each connected account's calendars appear as a separate group in the calendar selection list.
+
+If a connected OAuth account requires reauthorization — for example, because your token expired or you changed your password — Anarlog will show a warning in the Calendar settings. Use the account's context menu to **Reconnect** or **Disconnect** it.
+
+<Note>
+  Anarlog only reads your calendar data for display purposes inside the app. It never writes events to your calendar, sends invites on your behalf, or shares your calendar data with third-party services.
+</Note>

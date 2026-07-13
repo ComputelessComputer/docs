@@ -1,0 +1,84 @@
+---
+title: "Install Anarlog on macOS"
+sidebarTitle: "Installation"
+description: "System requirements, download instructions, and first-launch setup for Anarlog on macOS — Apple Silicon and Intel supported."
+---
+
+Anarlog ships as a standard macOS application distributed through GitHub Releases. Installation takes about two minutes: download the `.dmg`, drag the app to your Applications folder, and walk through a short onboarding flow to grant the two permissions Anarlog needs to capture audio. This page covers system requirements, the download options, and every step of the first-launch setup.
+
+## System requirements
+
+| Requirement | Details |
+|---|---|
+| **Operating system** | macOS (Apple Silicon or Intel) |
+| **Architecture** | Apple Silicon (aarch64) or Intel (x86_64) |
+| **Microphone permission** | Required to capture your own voice |
+| **Screen recording permission** | Required to capture system audio from Zoom, Meet, Teams, and other apps |
+
+Linux and Windows are not supported. Anarlog uses macOS-native audio APIs to capture system audio without a bot, and those APIs are not available on other platforms.
+
+## Download
+
+Grab the latest release from GitHub:
+
+```
+https://github.com/fastrepl/anarlog/releases/latest
+```
+
+Two builds are available on the releases page:
+
+- **`anarlog_*_aarch64.dmg`** — Apple Silicon Macs (M1, M2, M3, M4 and later).
+- **`anarlog_*_x86_64.dmg`** — Intel Macs.
+
+To confirm which chip your Mac has, click the Apple menu → **About This Mac** and check the processor line.
+
+## Installation steps
+
+<Steps>
+  <Step title="Download the .dmg from GitHub Releases">
+    Open [github.com/fastrepl/anarlog/releases/latest](https://github.com/fastrepl/anarlog/releases/latest) in your browser. Find the `.dmg` that matches your Mac's architecture and click it to start the download.
+  </Step>
+
+  <Step title="Open the DMG and drag Anarlog to Applications">
+    Once the download finishes, double-click the `.dmg` file to mount it. A Finder window opens showing the Anarlog icon and a shortcut to your Applications folder. Drag **Anarlog** onto the **Applications** folder to install it.
+  </Step>
+
+  <Step title="Launch Anarlog">
+    Open your Applications folder and double-click **Anarlog**. Because the app was downloaded from the internet rather than the Mac App Store, macOS will show a Gatekeeper dialog the first time. Click **Open** to confirm you want to launch it. This prompt only appears once.
+
+    If macOS says the app "cannot be opened because the developer cannot be verified", right-click (or Control-click) the Anarlog icon and choose **Open** from the context menu — the confirmation button then appears in the dialog.
+  </Step>
+
+  <Step title="Grant microphone permission">
+    The onboarding screen opens automatically on first launch. Click **Allow microphone access** when prompted. macOS will display a system dialog asking whether Anarlog can access the microphone — click **Allow**. The onboarding screen confirms the permission with a green checkmark.
+  </Step>
+
+  <Step title="Grant screen recording permission">
+    Click **Allow system audio access** on the same onboarding screen. macOS routes you to **System Settings → Privacy & Security → Screen Recording** (or **System Preferences → Security & Privacy → Privacy → Screen Recording** on older macOS versions). Toggle the switch next to Anarlog to enable it, then return to the app. Anarlog detects the permission automatically and advances to the next onboarding step.
+
+    <Warning>
+      Screen recording permission is required to capture system audio from Zoom, Google Meet, Microsoft Teams, and any other app that plays audio through your Mac's speakers or headphones. Without it, Anarlog can only hear your microphone and will not pick up remote participants.
+    </Warning>
+  </Step>
+</Steps>
+
+## First-launch onboarding flow
+
+After permissions are granted, Anarlog walks you through a short setup sequence:
+
+1. **Permissions** — microphone and system audio, covered above.
+2. **Login (optional)** — you can sign in if you want to sync settings, but no account is required to use Anarlog.
+3. **Calendar** — connect Google Calendar or Apple Calendar so Anarlog can pre-fill session names and participants from your scheduled events. This step is also optional.
+4. **Done** — Anarlog opens the main window and you're ready to record.
+
+You can revisit any of these settings at any time from the **Settings** panel inside the app.
+
+## Building from source
+
+Anarlog is MIT-licensed and fully open source. If you prefer to build the application yourself, or if you want to self-host any of its components, the source code and build instructions are available at:
+
+```
+https://github.com/fastrepl/anarlog
+```
+
+Clone the repository, follow the setup instructions in the README, and run the desktop app locally. Community contributions are welcome.

@@ -1,0 +1,94 @@
+{
+  "projectType": "saas",
+  "projectName": "Anarlog",
+  "projectDescription": "An open-source, local-first AI meeting notetaker that records system audio, transcribes on-device, and generates AI summaries — with no cloud lock-in and no bots joining your calls.",
+  "theme": "almond",
+  "primaryColor": "#ab8c44",
+  "lightColor": "#7a5a17",
+  "darkColor": "#fbe29b",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Docs",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "installation"
+            ]
+          },
+          {
+            "group": "Core Features",
+            "pages": [
+              "features/recording",
+              "features/transcription",
+              "features/ai-notes",
+              "features/templates",
+              "features/search-export"
+            ]
+          },
+          {
+            "group": "AI Setup",
+            "pages": [
+              "ai/intelligence",
+              "ai/transcription-providers",
+              "ai/local-models"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/calendar",
+              "integrations/import",
+              "integrations/mcp"
+            ]
+          },
+          {
+            "group": "Configuration",
+            "pages": [
+              "configuration/general",
+              "configuration/storage",
+              "configuration/personalization"
+            ]
+          },
+          {
+            "group": "Help",
+            "pages": [
+              "help/faq",
+              "help/privacy",
+              "help/troubleshooting"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Bot-free system audio capture — records any meeting platform without joining as a participant",
+    "On-device local transcription using Whisper and other local models",
+    "Bring-your-own-LLM: OpenAI, Anthropic, Google Gemini, OpenRouter, Ollama, LM Studio, Azure",
+    "Multiple STT providers: Deepgram, AssemblyAI, OpenAI, ElevenLabs, Soniox, Gladia, and more",
+    "Notes stored as plain Markdown files on disk — no vendor lock-in",
+    "AI-powered summary generation with customizable templates and sections",
+    "Calendar integration (Apple Calendar, Google Calendar, Outlook) for meeting-backed notes",
+    "Import from Granola and previous Hyprnote versions",
+    "Full-text search across all meeting notes",
+    "Export to PDF",
+    "MCP (Model Context Protocol) integration for AI assistants",
+    "Custom transcription dictionary for domain-specific terms",
+    "Floating recording bar for minimal-distraction use",
+    "45+ supported transcription languages",
+    "macOS-first desktop app built with Tauri (Rust + React)"
+  ],
+  "publicApiSurface": [
+    "Webhook events: note_created, note_updated, note_deleted, recording_started, recording_completed, transcription_ready",
+    "Plugin SDK: PluginModule, PluginContext, registerView, openTab, registerEvent, registerCleanup",
+    "Settings: autostart, auto_start_scheduled_meetings, auto_stop_meetings, floating_bar_enabled, show_app_in_dock, show_tray_icon, telemetry_consent, ai_language, spoken_languages, current_stt_provider, audio_retention, personalization_dictionary_terms",
+    "LLM providers: hyprnote (Anarlog cloud), lmstudio, ollama, openrouter, openai, cloudflare_workers_ai, anthropic, mistral, azure_openai, azure_ai, google_generative_ai, custom",
+    "STT providers: hyprnote, deepgram, assemblyai, openai, cartesia, cloudflare_workers_ai, gladia, soniox, elevenlabs, mistral, pyannote, aquavoice, fireworks, custom",
+    "Import sources: Granola, HyprnoteV0Stable, HyprnoteV0Nightly, AsIs",
+    "Export: PDF via export plugin"
+  ]
+}

@@ -1,0 +1,77 @@
+---
+title: "How Anarlog Handles Your Data and Privacy"
+sidebarTitle: "Privacy"
+description: "Anarlog is local-first by design — your audio, transcripts, and notes stay on your device. Understand exactly what data leaves your machine and when."
+---
+
+Anarlog is built around a simple principle: your meeting data belongs to you. Unlike cloud-based meeting tools that upload your audio to remote servers by default, Anarlog stores everything on your device and only sends data outside your Mac when you explicitly configure a provider to do so. Here's exactly what stays local, what's optional, and what — if anything — leaves your device.
+
+## What always stays on your device
+
+No matter how you configure Anarlog, the following data never leaves your machine:
+
+- **Audio recordings** — captured and stored in your vault folder as local files
+- **Transcripts and notes** — saved as plain `.md` Markdown files inside the vault you choose
+- **Calendar data** — read locally from Apple Calendar (or synced from Google/Outlook via OAuth); calendar event details are never uploaded to Anarlog servers
+- **Settings and configuration** — all app preferences are stored locally in macOS app data
+
+## What leaves your device (only if you configure it)
+
+Anarlog does not send any data to the cloud by default. Data can leave your device only in these specific, opt-in scenarios:
+
+| What's sent | When it happens | Who receives it |
+|---|---|---|
+| Audio or transcript | You configure a cloud STT provider | Your chosen provider (e.g., Deepgram, AssemblyAI) |
+| Transcript text | You configure a cloud LLM provider | Your chosen provider (e.g., OpenAI, Anthropic, Google) |
+| Anonymous usage events | You explicitly opt in to analytics | Anarlog's analytics service |
+
+Analytics are **off by default**. You will be asked during setup and can change your choice at any time in Settings → General.
+
+## Fully offline mode
+
+If you want zero data to leave your Mac, this is achievable with one provider combination:
+
+- **Transcription**: local Whisper (requires Apple Silicon — M1 or later)
+- **AI summarisation**: Ollama or LM Studio running a local model
+
+With this setup, Anarlog processes your audio, generates transcripts, and writes AI summaries entirely on-device. No internet connection is required after the initial model download.
+
+<Tip>
+  For maximum privacy, use local Whisper for transcription and Ollama or LM Studio for AI summaries. With this combination, nothing leaves your Mac — your audio, transcripts, and notes stay completely on-device.
+</Tip>
+
+## Open-source audit
+
+Because Anarlog is MIT-licensed and fully open source, you don't have to take our word for how data flows — you can read the code directly. Every audio capture path, every provider integration, and every file write is auditable by you or your security team.
+
+Source code: [github.com/fastrepl/anarlog](https://github.com/fastrepl/anarlog)
+
+## No accounts by default
+
+Anarlog does not require an account. There is no user profile stored on Anarlog's servers, no cloud storage for your notes, and no telemetry unless you opt in. The app works fully offline and fully anonymously out of the box.
+
+An optional account unlocks the Anarlog-hosted AI service if you prefer a managed provider over supplying your own API keys. Even with an account, your vault files remain on your device — the account only governs access to the managed AI endpoint.
+
+## Third-party provider policies
+
+When you configure a cloud LLM or STT provider, data sent to that provider is subject to their own privacy policy. Links to the major providers' policies are below for reference:
+
+- [OpenAI Privacy Policy](https://openai.com/privacy)
+- [Anthropic Privacy Policy](https://www.anthropic.com/privacy)
+- [Google Privacy Policy](https://policies.google.com/privacy)
+- [Deepgram Privacy Policy](https://deepgram.com/privacy)
+- [AssemblyAI Privacy Policy](https://www.assemblyai.com/legal/privacy-policy)
+- [Mistral Privacy Policy](https://mistral.ai/privacy-policy)
+- [OpenRouter Privacy Policy](https://openrouter.ai/privacy)
+
+We recommend reviewing your chosen provider's data retention and model training policies — some providers may use your inputs to train their models unless you opt out or use an enterprise tier.
+
+## Summary
+
+| Data type | Default behaviour | Can leave your device? |
+|---|---|---|
+| Audio recordings | Stored locally in your vault | Only if you use a cloud STT provider |
+| Transcripts | Stored locally as `.md` files | Only if you use a cloud LLM provider |
+| Calendar events | Read locally, never uploaded | No |
+| Settings | Stored locally | No |
+| Usage analytics | Off by default | Only if you opt in |

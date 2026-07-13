@@ -1,0 +1,120 @@
+---
+title: "Troubleshoot Common Anarlog Issues"
+sidebarTitle: "Troubleshooting"
+description: "Fix common Anarlog issues — audio not recording, transcription failing, AI summaries not generating, and permission problems on macOS."
+---
+
+Most Anarlog issues fall into a few categories — permissions, provider configuration, or audio routing. macOS is protective of microphone and system audio access, so many first-run problems come down to a missing permission grant. This guide walks through the most common issues and how to resolve them.
+
+<AccordionGroup>
+
+  <Accordion title="Anarlog isn't recording audio / I only hear silence in transcriptions">
+    This is almost always a permissions issue. Work through these steps in order:
+
+    1. **Grant Screen Recording permission** — Anarlog captures system audio through macOS's screen recording API. Go to **System Settings → Privacy & Security → Screen Recording**, find Anarlog in the list, and toggle it on.
+
+    2. **Grant Microphone permission** — Go to **System Settings → Privacy & Security → Microphone** and ensure Anarlog is enabled. This is required to record your own voice.
+
+    3. **Check your audio routing** — System audio capture requires that meeting audio is actually playing through your Mac's speakers or headphones. If you're routing audio through an external interface or a virtual audio device, confirm the audio is passing through macOS's audio graph.
+
+    4. **Restart Anarlog** — After granting any permission, fully quit Anarlog (Cmd+Q or right-click the menu bar icon → Quit) and relaunch it. macOS requires a restart to apply new permission grants.
+
+    If you've granted permissions but the issue persists, go to **Settings → General → Permissions** inside Anarlog and use the **Reset** option next to System Audio, then request the permission again.
+  </Accordion>
+
+  <Accordion title="Transcription is not working / shows an error">
+    **For cloud providers (Deepgram, AssemblyAI):**
+
+    - Open **Settings → Transcription** and verify your API key is entered correctly — no extra spaces or missing characters.
+    - Check that your internet connection is active. Cloud transcription requires an outbound connection to the provider's API.
+    - Log in to your provider's dashboard and confirm your account has remaining credits. Deepgram and AssemblyAI will return errors when credits are exhausted.
+    - Check the health indicator next to your provider in Settings. A red indicator means Anarlog cannot reach the API; hover over it for the specific error message.
+
+    **For local Whisper (on-device transcription):**
+
+    - Local transcription is only available on **Apple Silicon (M1 or later)**. If you're on an Intel Mac, this option will not appear in settings — choose a cloud provider instead.
+    - If the model was recently selected, it may still be downloading. Check Settings → Transcription for a download progress indicator.
+    - If the local STT server failed to start, try restarting Anarlog. The server spins up in the background at launch.
+  </Accordion>
+
+  <Accordion title="AI enhancement (Enhance) is not working">
+    **For cloud LLM providers (OpenAI, Anthropic, Google, etc.):**
+
+    - Open **Settings → Intelligence** and confirm a provider is selected and your API key is entered.
+    - Verify the API key is valid and the account it belongs to has available credits.
+    - If you're using OpenRouter or a custom OpenAI-compatible endpoint, double-check the base URL and model name in settings.
+
+    **For local LLMs (Ollama):**
+
+    - Ollama must be running before Anarlog can use it. Open a terminal and run `ollama serve` if the Ollama menu bar item isn't visible, or check that it launched at login.
+    - Confirm the model you want to use has been pulled: `ollama list` should show it. If not, run `ollama pull <model-name>`.
+
+    **For LM Studio:**
+
+    - Open LM Studio and ensure the **Local Server** is running (the server tab in the left sidebar).
+    - Make sure **CORS** is enabled in LM Studio's server settings — Anarlog needs this to make requests to the local server from a different origin.
+    - Verify the server is listening on the expected port (default: `1234`) and that no firewall is blocking loopback connections.
+  </Accordion>
+
+  <Accordion title="Calendar events are not showing up">
+    **Apple Calendar:**
+
+    - Go to **System Settings → Privacy & Security → Calendars** and confirm Anarlog has permission. If it's missing from the list, open **Settings → General → Permissions** in Anarlog and request Calendar access.
+    - After granting permission, restart Anarlog.
+
+    **Google Calendar or Microsoft Outlook:**
+
+    - These calendars connect via OAuth. If events aren't syncing, go to **Settings → Calendar**, disconnect your account, and reconnect it to refresh the OAuth token.
+    - After reconnecting, calendar sync may take a few minutes to populate upcoming events.
+
+    **General:**
+
+    - Only events within your configured lookahead window will appear. Check the time range in Settings → Calendar if a specific event is missing.
+    - All-day events and events without a conferencing link may not trigger automatic meeting detection.
+  </Accordion>
+
+  <Accordion title="Anarlog is not starting at login">
+    1. Open **Settings → General** in Anarlog and confirm the **Start Anarlog at login** toggle is enabled.
+    2. Go to **System Settings → General → Login Items** on your Mac and verify Anarlog appears in the list. If it's not there, toggling the setting in Anarlog should add it.
+    3. If Anarlog appears in Login Items but still doesn't launch, try removing it from that list, then re-enabling the toggle inside Anarlog.
+    4. On macOS Ventura and later, Login Items can also be managed per-app. Check that Anarlog hasn't been blocked under **System Settings → General → Login Items & Extensions**.
+  </Accordion>
+
+  <Accordion title="The floating bar is not appearing during recording">
+    The floating bar (the small overlay that appears over your screen during an active meeting) requires two things:
+
+    1. **Screen Recording permission** — go to **System Settings → Privacy & Security → Screen Recording** and ensure Anarlog is enabled.
+    2. **The setting is turned on** — in Anarlog, go to **Settings → General → Meetings** and enable **Show floating bar**.
+
+    After enabling both, start a new recording session. If the bar still doesn't appear, restart Anarlog to ensure the new permission is picked up.
+  </Accordion>
+
+  <Accordion title="Notes are not syncing to Obsidian">
+    Anarlog writes notes as plain `.md` files — it doesn't integrate with Obsidian directly, but points its vault at an Obsidian vault folder:
+
+    1. In **Settings → Storage**, check the vault path. It should be the path to your Obsidian vault's root folder (the folder that contains Obsidian's `.obsidian` configuration directory).
+    2. Open Obsidian and confirm it's configured to use the same folder as its vault. If Obsidian has a different folder selected, notes will land in a folder Obsidian isn't watching.
+    3. If you recently moved your Obsidian vault, update the path in Anarlog's Settings → Storage to match the new location.
+    4. New files written by Anarlog should appear in Obsidian's file explorer automatically on next sync — Obsidian watches the vault folder for changes.
+  </Accordion>
+
+  <Accordion title="How do I reset Anarlog to factory defaults?">
+    <Warning>
+      Resetting Anarlog deletes all app configuration and, depending on your vault location, may delete local meeting notes. **Back up your vault folder before proceeding.**
+    </Warning>
+
+    To fully reset Anarlog:
+
+    1. Quit Anarlog completely (Cmd+Q or right-click the menu bar icon → Quit).
+    2. Back up your vault folder to a safe location.
+    3. Delete the app's data directory. On macOS, this is typically located at `~/Library/Application Support/Anarlog` — you can open it with **Go → Go to Folder** in Finder.
+    4. Relaunch Anarlog. It will run the first-launch setup as if freshly installed.
+
+    Your vault `.md` files are stored separately from the app data, so as long as you back them up first, they survive a reset and can be repointed in Settings → Storage after setup.
+  </Accordion>
+
+</AccordionGroup>
+
+<Note>
+  If you've worked through these steps and you're still stuck, open an issue on GitHub with details about what you're seeing: [github.com/fastrepl/anarlog/issues](https://github.com/fastrepl/anarlog/issues). Include your macOS version, your Mac's chip type (Apple Silicon or Intel), and the specific error message or behaviour you're encountering.
+</Note>

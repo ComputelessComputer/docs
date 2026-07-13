@@ -1,0 +1,52 @@
+---
+title: "Anarlog: Local-First AI Meeting Notetaker"
+sidebarTitle: "Introduction"
+description: "Anarlog is an open-source AI meeting notetaker that records, transcribes, and summarizes meetings on your Mac — your data never leaves your machine unless you choose."
+---
+
+Anarlog is an open-source, local-first AI meeting notetaker built for macOS. It captures your meetings — whether on Zoom, Google Meet, Microsoft Teams, a phone call, or in person — and turns them into plain Markdown files saved on your own machine. There are no bots, no cloud pipelines, and no accounts required. If you want full control over your meeting notes without sacrificing the convenience of AI-generated summaries, Anarlog is for you.
+
+## How it works
+
+Anarlog follows a straightforward three-step flow from the moment a meeting starts to the moment your notes are ready:
+
+1. **Record** — Anarlog captures both your microphone input and system audio directly on your Mac, so every voice in the room or on the call is picked up without sending a bot into the meeting.
+2. **Transcribe** — The audio is transcribed on-device using a local model, or you can choose a cloud provider such as Deepgram, AssemblyAI, or OpenAI. Either way, you decide where the audio goes.
+3. **Summarize** — Once the meeting ends, click **Enhance** and Anarlog uses your chosen AI model to generate a structured summary. Notes are written back to the same Markdown file, ready to read, search, or sync.
+
+## Key features
+
+<CardGroup cols={2}>
+  <Card title="Bot-free audio capture" icon="microphone">
+    Anarlog taps into your Mac's system audio and microphone directly. No bot joins your call, no third-party dial-in number, and no one on the other end will know you're taking notes.
+  </Card>
+  <Card title="On-device transcription" icon="cpu">
+    Transcription runs locally by default using Whisper Large V3, so your audio never leaves your machine. Switch to a cloud provider whenever you need higher accuracy or faster turnaround.
+  </Card>
+  <Card title="Bring your own LLM" icon="brain">
+    Connect any AI provider you trust — OpenAI, Anthropic, Google Gemini, OpenRouter, Ollama, LM Studio, or any OpenAI-compatible endpoint. Use a local model if you want zero data sharing.
+  </Card>
+  <Card title="Plain Markdown storage" icon="file-text">
+    Every meeting is a single `.md` file on your disk. Open it in any editor, search it with Spotlight, version-control it with git, or sync it through iCloud, Dropbox, or Syncthing.
+  </Card>
+  <Card title="Calendar integration" icon="calendar">
+    Anarlog connects to your calendar so you can start a session directly from a scheduled event. Meeting title, participants, and time are pre-filled automatically.
+  </Card>
+  <Card title="45+ languages" icon="globe">
+    Transcription and AI summarization work across more than 45 languages. Anarlog detects the language automatically and applies language-aware tokenization for accurate full-text search.
+  </Card>
+</CardGroup>
+
+## What makes Anarlog different
+
+Most meeting notetakers are cloud services that store your recordings on someone else's server. Anarlog takes the opposite approach: every file lives on your disk, every model runs under your API keys, and the application itself is open source under the MIT license so you can inspect, fork, or self-host every line of it.
+
+There are no accounts to create and no usage-based billing hidden behind a free tier. You bring your own LLM keys, or you run a local model like Ollama and pay nothing at all. Your notes are already in a format — plain Markdown — that will outlast any proprietary app.
+
+Because Anarlog is open source, the community can audit exactly how audio is captured, how transcription works, and where data moves. That transparency is the foundation of the privacy-first promise: it is not a policy you have to trust, it is code you can read.
+
+<Note>
+  Anarlog is a macOS-only application. Both Apple Silicon (aarch64) and Intel (x86_64) Macs are supported. Linux and Windows builds are not planned at this time.
+</Note>
+
+Ready to set up Anarlog? Head to the [Quickstart](/quickstart) guide to download the app and record your first meeting in under five minutes.

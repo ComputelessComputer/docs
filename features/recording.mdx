@@ -1,0 +1,56 @@
+---
+title: "Bot-Free Meeting Recording in Anarlog"
+sidebarTitle: "Recording"
+description: "Anarlog captures system audio directly from your Mac — no bot joins your call, no calendar permissions needed, and audio never leaves your device."
+---
+
+Anarlog records your meetings by tapping directly into macOS system audio — the same audio stream your speakers play. Because it listens to what your Mac outputs rather than just what your microphone picks up, every participant's voice is captured in a single recording, whether you're on Zoom, Google Meet, or any other platform.
+
+## How it works
+
+Anarlog uses the macOS system audio API to capture everything your Mac plays back. There is no meeting bot, no calendar integration required, and no cloud upload of your audio. This approach works across every meeting platform and even with in-person meetings where you use your microphone directly:
+
+<CardGroup cols={2}>
+  <Card title="Zoom" icon="video">
+    Captures all participants over your Zoom audio output automatically.
+  </Card>
+  <Card title="Google Meet" icon="google">
+    Works with Meet in any browser — no extension or integration needed.
+  </Card>
+  <Card title="Microsoft Teams" icon="microsoft">
+    Records Teams calls the same way, without joining as a bot.
+  </Card>
+  <Card title="Any audio app" icon="headphones">
+    Works with Webex, Cal.com, phone calls over your Mac, or any audio source.
+  </Card>
+  <Card title="In-person meetings" icon="microphone">
+    Use your Mac's built-in microphone to record conversations face to face.
+  </Card>
+</CardGroup>
+
+## Starting a recording
+
+Open or create a note session in Anarlog. In the top-right corner of the note, you'll find the **Record** button (or **Resume** if you've recorded in this session before, and **Join & record** when a meeting link is attached). Click it to begin capturing audio immediately. A live waveform in the button confirms that Anarlog is listening.
+
+To stop, click the same button — it changes to a **Stop** label with a red square icon while a session is active.
+
+## Floating bar
+
+While a recording is active, Anarlog can display a compact floating control bar that stays visible on top of your other windows. You can summon it at any time from the **⋯ More** menu → **Open floating panel**. To toggle whether the floating bar appears automatically, go to **Settings → General → Show floating bar**.
+
+## Auto-start and auto-stop
+
+Anarlog can manage recording for calendar-backed sessions without any manual action:
+
+- **Start when meeting begins** — when a note is linked to a scheduled event, Anarlog starts listening automatically at the event's scheduled start time. Enable this in **Settings → General → Start when meeting begins**.
+- **Stop when meeting ends** — Anarlog detects when your meeting app releases the microphone and stops recording automatically. Enable this in **Settings → General → Stop when meeting ends**.
+
+<Note>
+  Anarlog requires the **Screen Recording** permission to access system audio on macOS. You'll be prompted to grant this permission during onboarding. If you skipped it, open **System Settings → Privacy & Security → Screen Recording** and enable it for Anarlog.
+</Note>
+
+## What gets saved
+
+After you stop recording, Anarlog saves the audio file alongside your note in your vault folder. You can view or play it back using the audio timeline that appears at the top of the note view. If you no longer need the audio, open the **Transcript** tab, right-click it, and choose **Delete recording** — this removes the audio file while preserving your transcript and notes.
+
+Audio retention is tied to your vault: files remain until you delete them manually or remove the session.

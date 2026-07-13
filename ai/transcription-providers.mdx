@@ -1,0 +1,151 @@
+---
+title: "Choose a Transcription Provider in Anarlog"
+sidebarTitle: "Transcription Providers"
+description: "Anarlog supports 10+ speech-to-text providers including Deepgram, AssemblyAI, OpenAI Whisper, ElevenLabs, and local on-device transcription."
+---
+
+The transcription provider converts your meeting audio into text before Anarlog generates a summary. You can choose a cloud provider for maximum accuracy, or use a local on-device Whisper model if you want your audio to stay entirely on your Mac. Different providers offer different tradeoffs in accuracy, latency, language coverage, and special features like speaker diarization.
+
+## How to configure
+
+<Steps>
+  <Step title="Open Settings">
+    In Anarlog, navigate to **Settings → Transcription**.
+  </Step>
+  <Step title="Select a provider">
+    Choose a provider from the list. Providers requiring an API key will expand a configuration panel.
+  </Step>
+  <Step title="Enter your API key">
+    Paste the API key for your chosen provider.
+  </Step>
+  <Step title="Select a model">
+    Pick the transcription model you want to use. Available models are shown per provider.
+  </Step>
+</Steps>
+
+<Tip>
+  For the highest accuracy on English-language meetings, **Deepgram Nova 3** and **ElevenLabs Scribe V2 Realtime** are recommended starting points.
+</Tip>
+
+## Providers
+
+<AccordionGroup>
+  <Accordion title="Anarlog (Pro)">
+    Anarlog's own cloud transcription service. No API key needed — requires an active **Pro** account. The easiest way to get started with no external accounts or configuration.
+
+    | Model | Notes |
+    |---|---|
+    | Pro (Cloud) | Fully managed, updated automatically |
+  </Accordion>
+
+  <Accordion title="Deepgram">
+    High-accuracy real-time transcription. API key required — get one at [deepgram.com](https://deepgram.com).
+
+    | Model | Notes |
+    |---|---|
+    | Nova 3 | General-purpose, high accuracy |
+    | Nova 3 Medical | Optimized for medical terminology |
+  </Accordion>
+
+  <Accordion title="AssemblyAI">
+    Versatile cloud transcription with multiple model tiers. API key required — get one at [assemblyai.com](https://www.assemblyai.com).
+
+    | Model | Notes |
+    |---|---|
+    | Universal 3.5 Pro | Highest-accuracy batch model |
+    | Universal 3.5 Pro Realtime | Real-time variant of Universal 3.5 Pro |
+    | Whisper RT | Real-time Whisper-based transcription |
+  </Accordion>
+
+  <Accordion title="OpenAI">
+    OpenAI's Whisper and GPT-4o transcription models. API key required — get one at [platform.openai.com](https://platform.openai.com). Note: OpenAI transcription in Anarlog currently operates in **batch-only** mode.
+
+    | Model | Notes |
+    |---|---|
+    | GPT-4o Transcribe Diarize | GPT-4o with speaker diarization |
+    | GPT-4o Transcribe | GPT-4o-based transcription |
+    | GPT-4o mini Transcribe | Faster, lighter GPT-4o variant |
+    | Whisper 1 | Classic Whisper model |
+  </Accordion>
+
+  <Accordion title="ElevenLabs">
+    Premium speech recognition with real-time support. API key required — get one at [elevenlabs.io](https://elevenlabs.io).
+
+    | Model | Notes |
+    |---|---|
+    | Scribe V2 Realtime | Real-time, high-accuracy transcription |
+    | Scribe V2 | Batch variant |
+  </Accordion>
+
+  <Accordion title="Gladia">
+    Gladia specialises in multi-speaker meeting transcription, offering **speaker diarization**, **code switching** (mixed-language transcription), and multi-channel audio support. API key required — get one at [gladia.io](https://www.gladia.io).
+
+    | Model | Notes |
+    |---|---|
+    | Solaria 1 | Gladia's flagship model with diarization |
+  </Accordion>
+
+  <Accordion title="Soniox">
+    Real-time transcription with a family of versioned models. API key required — get one at [soniox.com](https://soniox.com).
+
+    | Model | Notes |
+    |---|---|
+    | Soniox 5 | Latest generation real-time model |
+    | Soniox 4 | Previous generation real-time model |
+    | Universal 3.5 Pro Realtime | Real-time universal model |
+  </Accordion>
+
+  <Accordion title="Cartesia">
+    Fast streaming transcription. API key required — get one at [play.cartesia.ai/keys](https://play.cartesia.ai/keys).
+
+    | Model | Notes |
+    |---|---|
+    | Ink 2 | Cartesia's latest transcription model |
+  </Accordion>
+
+  <Accordion title="Mistral">
+    Mistral's Voxtral models for transcription. API key required — get one at [console.mistral.ai](https://console.mistral.ai).
+
+    | Model | Notes |
+    |---|---|
+    | Voxtral Realtime | Real-time Voxtral transcription |
+    | Voxtral Mini Transcribe 2 | Compact batch Voxtral model |
+  </Accordion>
+
+  <Accordion title="pyannoteAI">
+    Specialised in **speaker diarization** — ideal when knowing who said what is important. API key required. Note: currently operates in **batch-only** mode.
+
+    | Model | Notes |
+    |---|---|
+    | Parakeet TDT 0.6B V3 | Lightweight diarization-focused model |
+    | Faster Whisper Large V3 Turbo | Whisper-based transcription with diarization |
+  </Accordion>
+
+  <Accordion title="AquaVoice">
+    Whisper-based transcription. API key required. Note: currently operates in **batch-only** mode.
+
+    | Model | Notes |
+    |---|---|
+    | Avalon V1 | AquaVoice's transcription model |
+  </Accordion>
+
+  <Accordion title="Cloudflare Workers AI">
+    Run transcription through Cloudflare's global inference network. Requires a base URL (`https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/v1`) and a Cloudflare API token with Workers AI access.
+
+    | Model | Notes |
+    |---|---|
+    | Nova 3 | Deepgram Nova 3 via Cloudflare |
+  </Accordion>
+
+  <Accordion title="Custom">
+    Any **OpenAI-compatible** speech-to-text endpoint. Provide your base URL and API key. Useful for self-hosted Whisper servers or other compatible inference services.
+  </Accordion>
+</AccordionGroup>
+
+## Supported languages
+
+Anarlog supports **49 languages** for transcription, including Arabic, Chinese, English, French, German, Hindi, Japanese, Korean, Portuguese, Russian, Spanish, and many more. Set your preferred transcription language in **Settings → General → Language**.
+
+## On-device transcription
+
+For fully local transcription with no data leaving your Mac, Anarlog also supports on-device Whisper models on Apple Silicon. See [Local Models](/ai/local-models) for setup instructions.

@@ -1,0 +1,73 @@
+---
+title: "Search and Export Your Meeting Notes"
+sidebarTitle: "Search & Export"
+description: "Full-text search across all your Anarlog notes and export any meeting to PDF — your notes are also plain Markdown files you can open anywhere."
+---
+
+Every note you create in Anarlog is immediately searchable and available as a plain Markdown file on disk. You can find anything you've written in seconds, export any session to a shareable document, or open your notes in any editor you already use — no lock-in, no proprietary format.
+
+## Full-text search
+
+Anarlog indexes all of your note titles and content using a fast local search engine (powered by Tantivy). To search, press **⌘ K** or click the search icon in the left sidebar. Results appear instantly with highlighted matches as you type.
+
+Search covers:
+
+- Note and session titles
+- Your handwritten memos
+- AI-generated summaries
+- Transcript text
+
+Results are ranked by relevance and support language-aware tokenization, so searching in any of the 45+ supported languages works naturally.
+
+## Export
+
+To export a note, open the session and click the **⋯ More** button in the top-right corner of the note header, then choose **Export**. An export modal appears with the following options:
+
+**File formats**
+
+| Format | Best for |
+|---|---|
+| **PDF** | Sharing with stakeholders, printing, archiving |
+| **Markdown** | Importing into Obsidian, Notion, or any Markdown-aware tool |
+| **TXT** | Plain text for pasting anywhere |
+| **Org** | Emacs Org-mode workflows |
+
+**Include options** — choose what content to include in the export:
+
+- **Memo** — your handwritten notes from the session
+- **Summary** — the AI-generated structured summary
+- **Transcript** — the full speech-to-text transcript
+
+Click **Export** and the file is saved to your Downloads folder. Anarlog automatically opens the Downloads folder in Finder after the export completes.
+
+## Your notes as plain files
+
+Anarlog stores every note as a `.md` (Markdown) file inside your vault folder. You can open, edit, or move these files with any application:
+
+<CardGroup cols={2}>
+  <Card title="Obsidian" icon="link">
+    Point your Obsidian vault at the same folder Anarlog uses and your meeting notes appear alongside your other knowledge-base files instantly.
+  </Card>
+  <Card title="VS Code" icon="code">
+    Open the vault folder in VS Code to read, search, and edit notes with full Markdown preview.
+  </Card>
+  <Card title="iA Writer" icon="pen-line">
+    Add the vault folder as an iA Writer library location for a distraction-free reading experience.
+  </Card>
+  <Card title="Any text editor" icon="file-text">
+    Because notes are plain `.md` files, any text editor — Sublime Text, Cursor, TextEdit — can open them without plugins.
+  </Card>
+</CardGroup>
+
+## Syncing across devices
+
+Because your notes are just files in a folder, you can use any file sync service to keep them in sync across your Macs or back them up automatically:
+
+- **iCloud Drive** — place your vault inside `~/Library/Mobile Documents/` or any iCloud-synced folder
+- **Dropbox / Google Drive / OneDrive** — move your vault into the synced folder
+- **Syncthing** — peer-to-peer sync with no cloud intermediary
+- **Git** — version-control your notes with a full commit history
+
+<Tip>
+  To use Anarlog notes directly inside Obsidian, go to **Settings → Storage** and set your vault path to an existing Obsidian vault folder. Every meeting note you create will appear in Obsidian immediately, complete with Markdown formatting and AI summaries.
+</Tip>

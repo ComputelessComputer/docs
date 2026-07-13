@@ -1,0 +1,54 @@
+---
+title: "Note Templates for AI Meeting Summaries"
+sidebarTitle: "Templates"
+description: "Anarlog templates define the sections in your AI-generated meeting summaries — create custom templates for standups, interviews, one-on-ones, and more."
+---
+
+Templates are the blueprints for your AI-generated meeting notes. Each template is a named list of sections — for example, "Action Items", "Key Decisions", and "Summary" — and when you enhance a session, Anarlog instructs the LLM to fill in every section based on the transcript and your memos. Different meeting types deserve different structures, and templates make it easy to get the right shape every time.
+
+## Built-in and community templates
+
+Anarlog ships with a library of ready-made community templates for common meeting types. You can browse them in the **Templates** sidebar under the **Community** tab. Templates in this library include standups, one-on-ones, sales calls, design reviews, and more. Click any community template to preview its sections, then use **Set as default** to make it your starting point for new sessions, or simply select it from the Summary tab dropdown before enhancing.
+
+Community templates are read-only, but you can duplicate any of them to create an editable personal copy.
+
+## Creating a custom template
+
+<Steps>
+  <Step title="Open the Templates panel">
+    Click **Templates** in the left sidebar, or open any note's Summary tab and click the dropdown → **See all templates**.
+  </Step>
+  <Step title="Create a new template">
+    Click **Create template** (the + button) in the My Templates section. Give your template a descriptive name — for example, "Weekly Standup" or "Customer Interview".
+  </Step>
+  <Step title="Add sections">
+    In the template editor, click **Add Section** to insert a new section. Each section has a **title** field and an optional **description** field where you can add Jinja2 instructions to guide the AI.
+  </Step>
+  <Step title="Arrange sections">
+    Drag the grip handle on the left of any section to reorder it. Use the **⋯** menu on each section to insert above, insert below, move up, move down, or delete.
+  </Step>
+  <Step title="Save">
+    Changes are saved automatically as you type. Your template is immediately available in the Summary tab dropdown for all sessions.
+  </Step>
+</Steps>
+
+## Template sections
+
+Each section has two fields:
+
+| Field | Purpose |
+|---|---|
+| **Title** | The section heading that appears in the generated note (e.g., "Action Items") |
+| **Description** | Optional Jinja2 template content that gives the AI more specific instructions for this section |
+
+The AI reads both the title and description when generating content, so a well-named section with a clear description produces more focused output.
+
+<Tip>
+  Use specific, self-explanatory section titles so the AI knows exactly what to write. "Action Items" works better than "Things to do". "Follow-up Questions for Candidate" is more precise than "Questions". If you want the AI to format output in a particular way, add a description like "List each item as a bullet with an owner and due date."
+</Tip>
+
+## Applying a template to a note
+
+When you're ready to enhance a session, click the active **Summary** tab in the note header — a dropdown appears showing your templates. Select the template you want and Anarlog immediately starts generating using that structure. If you want to try a different template, select another one from the same dropdown and a new summary version is created alongside the existing one.
+
+You can also mark a template as a **Favorite** (heart icon) to pin it to the top of the picker for quick access.

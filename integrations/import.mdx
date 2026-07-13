@@ -1,0 +1,78 @@
+---
+title: "Import Notes from Granola and Hyprnote"
+sidebarTitle: "Import"
+description: "Migrate your existing meeting notes into Anarlog from Granola or earlier versions of Hyprnote — your history comes with you."
+---
+
+If you're switching from Granola or upgrading from an earlier Hyprnote (Char) release, the import tool migrates your existing notes into Anarlog's format in a few clicks. Your meeting history, transcripts, attendees, and templates all make the journey with you so you don't start from a blank slate.
+
+## Supported import sources
+
+<CardGroup cols={2}>
+  <Card title="Granola" icon="leaf">
+    Imports all notes from Granola's local database. Granola must be installed on the same Mac and its database must be present at the default location.
+  </Card>
+  <Card title="Hyprnote v0 — Stable" icon="clock">
+    Imports from the older Hyprnote stable release. The data is read from `~/Library/Application Support/com.hyprnote.stable/`.
+  </Card>
+  <Card title="Hyprnote v0 — Nightly" icon="flask">
+    Imports from the Hyprnote nightly release. The data is read from `~/Library/Application Support/com.hyprnote.nightly/`.
+  </Card>
+  <Card title="As-Is (JSON)" icon="file-code">
+    Imports a folder of compatible JSON files directly into Anarlog without any transformation. Useful for custom data pipelines or manual migrations.
+  </Card>
+</CardGroup>
+
+## What gets imported
+
+Depending on the source, Anarlog imports as much of the following as is available:
+
+- **Note content** — the body of each meeting note
+- **Transcripts** — word-level transcriptions linked to the note
+- **Note titles and dates** — used to recreate the original session timeline
+- **Attendees and participants** — people linked to each meeting
+- **Organizations** — company associations attached to contacts
+- **Tags** — any labels or categories applied to notes
+- **Templates** — note templates you created or customized
+
+## How to import
+
+<Steps>
+  <Step title="Open the import dialog">
+    Navigate to **Settings → App** (or the **Data** section if shown in your version) and look for the **Import** option. You can also access the import dialog from the onboarding flow if you're setting up Anarlog for the first time.
+  </Step>
+  <Step title="Select your import source">
+    Choose the app you're migrating from: **Granola**, **Hyprnote v0 — Stable**, **Hyprnote v0 — Nightly**, or **As-Is**. Anarlog automatically detects which sources are available on your Mac and shows only the ones it can find.
+  </Step>
+  <Step title="Run a dry run">
+    Before committing to the import, click **Preview** (or **Dry Run**). Anarlog scans the source data and shows you a summary of what it found — the number of notes, transcripts, attendees, templates, and more — without writing anything to your vault yet. Review these stats to confirm you're importing from the right source.
+  </Step>
+  <Step title="Confirm and run the full import">
+    Once you're happy with the preview, click **Import**. Anarlog processes each record, transforms it into its internal format, and writes it to your local vault.
+  </Step>
+  <Step title="Review your imported notes">
+    After the import completes, your notes appear in the Anarlog sidebar alongside any notes you've already created. Use search or browse by date to find what you need.
+  </Step>
+</Steps>
+
+## Import stats preview
+
+When you run a dry run, Anarlog reports counts for each data type it found. Here's what those numbers mean:
+
+| Stat | Description |
+|---|---|
+| **Sessions** | Individual meeting notes |
+| **Transcripts** | Notes that have an associated transcript |
+| **People** | Unique attendees or contacts |
+| **Organizations** | Companies linked to those contacts |
+| **Participants** | Meeting-specific attendee entries |
+| **Templates** | Note templates found in the source |
+| **Enhanced notes** | Notes with AI-generated summaries or structured content |
+
+<Warning>
+  **Granola:** Granola must be installed and its local database must be present on the same Mac you're running Anarlog on. If Granola is not installed, or if you've never opened it on this machine, the Granola source will not appear in the available sources list.
+</Warning>
+
+<Note>
+  Importing does **not** delete or modify your original data in the source app. Your Granola or Hyprnote data remains untouched — you can continue using those apps or re-import at any time.
+</Note>

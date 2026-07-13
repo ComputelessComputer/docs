@@ -1,0 +1,50 @@
+---
+title: "Real-Time Transcription with Anarlog"
+sidebarTitle: "Transcription"
+description: "Anarlog transcribes your meetings live using on-device Whisper models or cloud providers like Deepgram, AssemblyAI, and OpenAI — in 45+ languages."
+---
+
+As soon as you start recording, Anarlog begins transcribing in real time. Words stream into the **Transcript** tab of your note as they are spoken, so you always have a live text view of the conversation alongside your own notes. When the session ends, the final transcript is saved permanently with your note.
+
+## Transcription modes
+
+You can choose between local on-device transcription and a range of cloud providers depending on your privacy requirements and accuracy needs.
+
+<CardGroup cols={2}>
+  <Card title="Local — Whisper" icon="house">
+    Runs entirely on your Mac using the Whisper Large V3 model. Audio is never
+    sent anywhere. Best for sensitive conversations or offline use. Available on
+    Apple Silicon Macs.
+  </Card>
+  <Card title="Cloud providers" icon="cloud">
+    Send audio to a third-party provider for faster or more accurate results.
+    Supported providers include Deepgram, Gladia, AssemblyAI, OpenAI, and
+    Soniox.
+  </Card>
+</CardGroup>
+
+<Tip>
+  Local transcription keeps your audio 100% on-device from capture to text — nothing is ever uploaded to a server. If privacy is your top priority, choose the **Whisper Large V3** model in **Settings → Transcription**.
+</Tip>
+
+For step-by-step instructions on configuring each cloud provider, see [Transcription Providers](/ai/transcription-providers).
+
+## Supported languages
+
+Anarlog supports transcription in 45+ languages through Whisper and the cloud providers. Select your preferred spoken language in **Settings → General → Language**. Some providers also support automatic language detection and live code-switching between languages within the same session.
+
+If you speak a language that a provider cannot handle, Anarlog automatically falls back to the closest supported language so transcription continues without interruption.
+
+## The Transcript tab
+
+While a session is active or after it ends, click the **Transcript** tab in the note header to view the full transcript. During a live session, you'll see animated waveform sticks indicating that audio is being captured and words are streaming in. The tab shows a spinner while a batch transcription job is processing after the meeting.
+
+Right-clicking the Transcript tab gives you quick actions:
+
+- **Copy** — copies the full transcript text to your clipboard
+- **Regenerate** — re-runs transcription on the saved audio file using your current settings
+- **Delete recording** — removes the audio file while keeping the transcript
+
+## Speaker diarization
+
+Several cloud providers support speaker diarization — attributing each spoken segment to a distinct speaker label. When diarization is enabled by your provider, speaker names (or labels like "Speaker 1", "Speaker 2") appear inline in the transcript view. Provider support for diarization varies; check the [Transcription Providers](/ai/transcription-providers) page for details on which providers offer it and how to enable it.

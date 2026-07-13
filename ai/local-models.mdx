@@ -1,0 +1,96 @@
+---
+title: "Run On-Device Transcription and LLMs Locally"
+sidebarTitle: "Local Models"
+description: "Use Whisper on Apple Silicon for 100% local transcription, or connect Ollama and LM Studio to run AI summaries without sending data to the cloud."
+---
+
+Anarlog can run completely offline. By combining on-device Whisper transcription (Apple Silicon only) with a local LLM via Ollama or LM Studio, your meetings are transcribed and summarised entirely on your Mac — no audio, text, or notes ever leave your device.
+
+## On-device transcription (Whisper)
+
+Anarlog includes built-in support for running Whisper models locally. Transcription happens on-chip using Apple Neural Engine acceleration, so it's fast and private.
+
+<Warning>
+  On-device transcription requires **Apple Silicon** (M1 or later). It is not available on Intel-based Macs.
+</Warning>
+
+<Steps>
+  <Step title="Open Transcription settings">
+    In Anarlog, navigate to **Settings → Transcription**.
+  </Step>
+  <Step title="Select a local Whisper model">
+    In the provider list, choose the local Whisper model you want to use. **Whisper Large V3** is the default and recommended option for best accuracy.
+  </Step>
+  <Step title="Download the model">
+    The first time you select a local model, Anarlog will prompt you to download it. The download is a one-time step — the model is cached on your Mac for all future sessions.
+  </Step>
+  <Step title="Start recording">
+    Once downloaded, Anarlog will use the local model automatically for all future transcriptions. No API key is required.
+  </Step>
+</Steps>
+
+## Local LLM via Ollama
+
+Ollama lets you download and run open-source LLMs locally in a single command. Anarlog connects to Ollama's built-in OpenAI-compatible server.
+
+<Steps>
+  <Step title="Install Ollama">
+    Download and install Ollama from [ollama.com/download](https://ollama.com/download).
+  </Step>
+  <Step title="Pull a model">
+    Open your terminal and pull the model you want to use. For example:
+
+    ```bash
+    ollama pull llama3.2
+    ```
+
+    Browse all available models at [ollama.com/library](https://ollama.com/library).
+  </Step>
+  <Step title="Start the Ollama server">
+    Make sure Ollama is running before opening Anarlog:
+
+    ```bash
+    ollama serve
+    ```
+
+    Ollama listens on `http://127.0.0.1:11434` by default.
+  </Step>
+  <Step title="Configure Anarlog">
+    In Anarlog, go to **Settings → Intelligence**, select **Ollama** as the provider, then choose your downloaded model from the dropdown. The base URL `http://127.0.0.1:11434/v1` is pre-filled — no changes needed unless you've customised the port.
+  </Step>
+</Steps>
+
+## Local LLM via LM Studio
+
+LM Studio is a desktop app that makes it easy to browse, download, and run local models with a graphical interface.
+
+<Steps>
+  <Step title="Install LM Studio">
+    Download and install LM Studio from [lmstudio.ai/download](https://lmstudio.ai/download).
+  </Step>
+  <Step title="Download a model">
+    Inside LM Studio, use the model browser to find and download the model you want to use. Browse available models at [lmstudio.ai/models](https://lmstudio.ai/models).
+  </Step>
+  <Step title="Enable CORS">
+    In LM Studio's settings, enable **CORS** (Cross-Origin Resource Sharing). This is required for Anarlog to communicate with the LM Studio server.
+  </Step>
+  <Step title="Start the local server">
+    In LM Studio, start the local inference server. It runs on port **1234** by default.
+  </Step>
+  <Step title="Configure Anarlog">
+    In Anarlog, go to **Settings → Intelligence**, select **LM Studio** as the provider, then choose your loaded model. The base URL `http://127.0.0.1:1234/v1` is pre-filled — no changes needed for the default port.
+  </Step>
+</Steps>
+
+## Fully offline setup
+
+<Tip>
+  With on-device Whisper transcription **and** a local LLM configured, Anarlog can process meetings entirely on your Mac. No audio, transcripts, or notes ever leave your device — making it ideal for sensitive conversations, air-gapped environments, or simply maximising your privacy.
+</Tip>
+
+| Component | Local option | Requirement |
+|---|---|---|
+| Transcription | Whisper (on-device) | Apple Silicon Mac |
+| AI summaries | Ollama or LM Studio | Any Mac |
+
+To set up a fully offline workflow, enable local Whisper transcription (see above) and then configure either Ollama or LM Studio as your Intelligence provider.

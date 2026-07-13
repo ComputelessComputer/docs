@@ -1,0 +1,127 @@
+---
+title: "General Settings in Anarlog"
+sidebarTitle: "General"
+description: "Configure startup behavior, meeting auto-start, floating bar, dock icon, notifications, and transcription language in Anarlog's General settings."
+---
+
+The General settings panel is your first stop for tailoring how Anarlog behaves on your Mac. From here you control how the app starts, how it responds to your calendar and meeting apps, what it looks like, which languages it listens in, and what system permissions it holds. Changes take effect immediately — there is no Save button.
+
+## App
+
+These toggles govern Anarlog's presence on your system and the data it shares.
+
+<AccordionGroup>
+  <Accordion title="Appearance">
+    Choose between **Light**, **Dark**, or **System** (follows your macOS appearance setting). The preference is stored locally and applied instantly.
+  </Accordion>
+
+  <Accordion title="Start Anarlog at login">
+    **Setting key:** `autostart`
+
+    When enabled, Anarlog launches automatically when you log in to macOS, so it is always ready to capture meetings without requiring you to open it manually.
+  </Accordion>
+
+  <Accordion title="Share usage data">
+    **Setting key:** `telemetry_consent`
+
+    When enabled, Anarlog sends anonymous usage analytics to help the team understand how the app is used and prioritize improvements. No meeting content, transcripts, or personally identifiable information is included. You can turn this off at any time.
+  </Accordion>
+
+  <Accordion title="Show app in Dock">
+    **Setting key:** `show_app_in_dock`
+
+    When enabled, Anarlog appears in the macOS Dock and in the <kbd>⌘</kbd><kbd>Tab</kbd> app switcher. Disable this if you prefer to interact with Anarlog exclusively from the menu bar.
+  </Accordion>
+
+  <Accordion title="Show tray icon">
+    **Setting key:** `show_tray_icon`
+
+    When enabled, a menu bar icon gives you quick access to Anarlog from anywhere on your Mac. It is recommended to keep at least one of **Show app in Dock** or **Show tray icon** enabled so you can always reach the app.
+  </Accordion>
+</AccordionGroup>
+
+## Meetings
+
+These settings determine how Anarlog starts, stops, and surfaces controls during your meetings.
+
+<AccordionGroup>
+  <Accordion title="Start when meeting begins">
+    **Setting key:** `auto_start_scheduled_meetings`
+
+    When enabled, Anarlog automatically begins listening when a calendar event-backed note reaches its scheduled start time. This means you never have to remember to press **Start** — Anarlog picks up the moment your meeting kicks off.
+  </Accordion>
+
+  <Accordion title="Stop when meeting ends">
+    **Setting key:** `auto_stop_meetings`
+
+    When enabled, Anarlog automatically stops listening when the meeting app (for example, Zoom or Google Meet) releases the microphone. Recording stops cleanly without any manual intervention.
+  </Accordion>
+
+  <Accordion title="Show floating bar">
+    **Setting key:** `floating_bar_enabled`
+
+    When enabled, a compact floating control bar appears on screen while Anarlog is actively listening. It lets you pause, stop, or check recording status without switching windows.
+  </Accordion>
+</AccordionGroup>
+
+## Language & Region
+
+Anarlog separates the language used for AI output from the languages spoken during meetings, giving you precise control over both transcription and summarization.
+
+<AccordionGroup>
+  <Accordion title="Main language (AI language)">
+    **Setting key:** `ai_language`
+
+    This is the language Anarlog uses when generating summaries, chat responses, and other AI output. Select the language you want your notes written in — this does not need to match the spoken language in the meeting. Anarlog supports over 50 languages including Arabic, Chinese, English, French, German, Hindi, Japanese, Portuguese, Spanish, and more.
+  </Accordion>
+
+  <Accordion title="Spoken languages">
+    **Setting key:** `spoken_languages`
+
+    Select every language that may be spoken in your meetings. This is a multi-select field — add as many languages as you need to support code-switching (for example, a meeting that mixes English and Spanish). Your **Main language** is always included automatically; spoken languages is for any additional ones. Anarlog passes the full list to the transcription model to improve accuracy.
+  </Accordion>
+</AccordionGroup>
+
+## Notifications
+
+<AccordionGroup>
+  <Accordion title="Event notifications">
+    **Setting key:** `notification_event`
+
+    When enabled, Anarlog sends you a notification 5 minutes before a calendar event is scheduled to start — a heads-up to wrap up what you are doing before joining the meeting.
+  </Accordion>
+
+  <Accordion title="Microphone detection">
+    **Setting key:** `notification_detect`
+
+    When enabled, Anarlog monitors microphone activity across your installed apps and alerts you when it detects a meeting in progress, even if you did not start it from a calendar event.
+
+    When this is turned on, two additional options appear:
+
+    - **Detection delay** — choose how long (5 – 120 seconds) the microphone must be continuously active before Anarlog treats it as a meeting. A longer delay avoids false positives from brief audio activity.
+    - **Exclude apps from detection** — search your installed applications and add any you want Anarlog to ignore (for example, a podcast app or a music player). Some apps are excluded by default. Click any excluded app badge to restore it.
+  </Accordion>
+
+  <Accordion title="Respect Do-Not-Disturb mode">
+    **Setting key:** `respect_dnd`
+
+    When enabled, Anarlog suppresses all notifications while macOS Focus or Do Not Disturb is active. This option is only available when at least one notification type is turned on.
+  </Accordion>
+</AccordionGroup>
+
+## Permissions
+
+Anarlog requires several macOS permissions to function. Open **Settings → General → Permissions** to review and grant each one.
+
+| Permission | Why it is needed |
+|---|---|
+| **Microphone** | Records your voice during meetings and calls |
+| **System audio** | Captures other participants' voices in remote meetings |
+| **Accessibility** | Detects meeting apps and syncs mute status |
+| **Calendar** | Syncs Apple Calendar events into Anarlog as note templates |
+
+Each row shows a status indicator. If a permission has not been granted, click the arrow button to request it or go directly to the macOS System Settings panel. If you run into trouble, click **Having trouble?** next to any permission to see options to request, reset, or open the relevant system panel.
+
+<Note>
+  Microphone and System audio permissions are required for transcription to work. If either is missing, Anarlog will not be able to record your meetings.
+</Note>

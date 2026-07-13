@@ -1,0 +1,112 @@
+---
+title: "Connect an LLM Provider for AI Note Summaries"
+sidebarTitle: "Intelligence"
+description: "Configure the AI model that powers Anarlog's note enhancement — choose from OpenAI, Anthropic, Google, Ollama, LM Studio, and more."
+---
+
+Anarlog's **Intelligence** setting controls which large language model generates your AI meeting summaries and note enhancements. You can connect a cloud provider using your own API key, or run a fully local model via Ollama or LM Studio for complete on-device privacy.
+
+## How to configure
+
+<Steps>
+  <Step title="Open Settings">
+    In Anarlog, navigate to **Settings → Intelligence**.
+  </Step>
+  <Step title="Select a provider">
+    Choose a provider from the list. Providers that require configuration (API key or base URL) will expand a setup panel.
+  </Step>
+  <Step title="Enter credentials">
+    Paste your API key or base URL as required by the provider.
+  </Step>
+  <Step title="Select a model">
+    Choose a model from the dropdown. The list is filtered automatically based on tool support and input modalities.
+  </Step>
+</Steps>
+
+<Note>
+  The model list shown in Anarlog is filtered based on tool support and input modalities. Not every model available from a provider will appear — only those compatible with Anarlog's note-enhancement features.
+</Note>
+
+## Providers
+
+<Tabs>
+  <Tab title="Cloud">
+    <CardGroup cols={2}>
+      <Card title="Anarlog" icon="sparkles">
+        **Recommended.** Fully managed — no API key needed. Requires an active Anarlog Pro account. The simplest way to get started with zero configuration.
+      </Card>
+      <Card title="OpenAI" icon="robot">
+        API key required. Get your key at [platform.openai.com](https://platform.openai.com). Supports GPT-4o and other OpenAI models.
+      </Card>
+      <Card title="Anthropic" icon="brain">
+        API key required. Get your key at [console.anthropic.com](https://console.anthropic.com). Supports Claude models.
+      </Card>
+      <Card title="Google AI Studio" icon="google">
+        API key required. Create a key at [aistudio.google.com/api-keys](https://aistudio.google.com/api-keys). Supports Gemini models.
+      </Card>
+      <Card title="OpenRouter" icon="route">
+        API key required. OpenRouter aggregates models from many providers, giving you broad model selection through a single API key.
+      </Card>
+      <Card title="Mistral" icon="wind">
+        API key required. Supports Mistral and Mixtral model families.
+      </Card>
+      <Card title="Azure OpenAI" icon="microsoft" badge="Beta">
+        Requires your **Azure OpenAI endpoint** (e.g. `https://your-resource.openai.azure.com`) as the base URL, plus an API key. Supports GPT models deployed via Azure.
+      </Card>
+      <Card title="Azure AI Foundry" icon="microsoft" badge="Beta">
+        Requires your **Azure AI Foundry endpoint** as the base URL, plus an API key. Supports Claude and other models deployed through Azure AI Foundry.
+      </Card>
+      <Card title="Cloudflare Workers AI" icon="cloud">
+        Requires a base URL in the format `https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/v1` and a Cloudflare API token with Workers AI access. Browse available models at [developers.cloudflare.com/workers-ai/models](https://developers.cloudflare.com/workers-ai/models/).
+      </Card>
+      <Card title="Custom" icon="wrench">
+        Any **OpenAI-compatible** endpoint. Provide your base URL and API key. Useful for self-hosted inference servers or provider proxies.
+      </Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Local (no API key)">
+    Running a local LLM keeps all your meeting data on your Mac — no data leaves your machine.
+
+    <CardGroup cols={2}>
+      <Card title="Ollama" icon="cube">
+        Free, open-source local inference. No API key required. Pre-filled base URL: `http://127.0.0.1:11434/v1`.
+
+        **Setup requirements:**
+        - Ollama must be running (`ollama serve`)
+        - You must pull a model before selecting it (`ollama pull llama3.2`)
+
+        Download at [ollama.com/download](https://ollama.com/download).
+      </Card>
+      <Card title="LM Studio" icon="desktop">
+        Free GUI app for running local models. No API key required. Pre-filled base URL: `http://127.0.0.1:1234/v1`.
+
+        **Setup requirements:**
+        - LM Studio server must be running (default port 1234)
+        - **CORS must be enabled** in LM Studio settings
+
+        Download at [lmstudio.ai/download](https://lmstudio.ai/download).
+      </Card>
+    </CardGroup>
+
+    <Tip>
+      For a fully offline setup, pair a local LLM with on-device Whisper transcription. See [Local Models](/ai/local-models) for details.
+    </Tip>
+  </Tab>
+</Tabs>
+
+## Provider quick reference
+
+| Provider | Credentials needed | Notes |
+|---|---|---|
+| Anarlog | None (Pro account) | Recommended, fully managed |
+| OpenAI | API key | platform.openai.com |
+| Anthropic | API key | console.anthropic.com |
+| Google AI Studio | API key | aistudio.google.com/api-keys |
+| OpenRouter | API key | Wide model selection |
+| Mistral | API key | Mistral & Mixtral models |
+| Azure OpenAI | Endpoint URL + API key | Beta |
+| Azure AI Foundry | Endpoint URL + API key | Beta, supports Claude |
+| Cloudflare Workers AI | Base URL + API token | Account ID required in URL |
+| Ollama | None | Must be running locally |
+| LM Studio | None | CORS must be enabled |
+| Custom | Base URL + API key | OpenAI-compatible only |

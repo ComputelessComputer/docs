@@ -1,0 +1,84 @@
+---
+title: "Anarlog Frequently Asked Questions"
+sidebarTitle: "FAQ"
+description: "Answers to common questions about Anarlog — privacy, platform support, AI providers, pricing, and how the bot-free recording works."
+---
+
+Anarlog is a free, open-source AI meeting notetaker built around one idea: your meeting data belongs to you. Below you'll find quick answers to the questions we hear most often — from how recording works to which AI providers you can use.
+
+<AccordionGroup>
+
+  <Accordion title="Is Anarlog free?">
+    Yes — completely free and open source under the MIT license. There is no paid plan, no subscription, and no paid tier in the pipeline. You bring your own API keys (BYOK) for any AI or transcription providers you want to use; Anarlog itself costs nothing.
+  </Accordion>
+
+  <Accordion title="Does a bot join my meeting?">
+    No. Anarlog captures system audio directly from macOS — it never connects to your call as a participant. No one on the call will see a bot join, no calendar invite permissions are needed, and no third-party service is given access to your meeting links. It simply listens to what plays through your Mac's audio system.
+  </Accordion>
+
+  <Accordion title="What platforms are supported?">
+    Anarlog runs on **macOS only**, on both Apple Silicon (M-series) and Intel Macs. There is currently no Windows or Linux desktop client, and none is planned. If you need to self-host or build from source for another platform, the MIT-licensed codebase is available at [github.com/fastrepl/anarlog](https://github.com/fastrepl/anarlog).
+  </Accordion>
+
+  <Accordion title="Does my audio get uploaded to the cloud?">
+    Only if you choose a cloud provider. Anarlog gives you full control over every step of the pipeline:
+
+    - **Fully local**: use on-device Whisper transcription (Apple Silicon) and a local LLM via Ollama or LM Studio — nothing ever leaves your Mac.
+    - **Hybrid**: keep transcription local but send the transcript to a cloud LLM (e.g., OpenAI or Anthropic) for summarisation.
+    - **Cloud**: use a cloud speech-to-text provider (e.g., Deepgram or AssemblyAI) alongside a cloud LLM for maximum accuracy.
+
+    You configure this in Settings → Transcription and Settings → Intelligence. Whatever you don't configure stays on your device.
+  </Accordion>
+
+  <Accordion title="Do I need an account?">
+    No account is required. Anarlog works entirely locally without any sign-in. Optional account features unlock the Anarlog-hosted AI service if you prefer a managed option over bringing your own API keys, but the core app — recording, transcription, and note generation — is fully functional with no account at all.
+  </Accordion>
+
+  <Accordion title="Where are my notes stored?">
+    In a vault folder you choose on your Mac, as plain `.md` Markdown files. You pick the folder during setup (Settings → Storage) and every meeting note, transcript, and audio recording lands there. Because they're plain files, you can open them in any text editor, version-control them with git, or search them with Spotlight.
+  </Accordion>
+
+  <Accordion title="Can I use my own AI model?">
+    Yes. Anarlog supports a wide range of LLM and transcription providers:
+
+    **Cloud LLMs:** OpenAI, Anthropic, Google (Gemini), Mistral, OpenRouter, Azure, Cloudflare, or any OpenAI-compatible endpoint.
+
+    **Local LLMs:** Ollama, LM Studio.
+
+    **Cloud STT:** Deepgram, AssemblyAI.
+
+    **Local STT:** On-device Whisper (Apple Silicon).
+
+    Mix and match however works best for your privacy requirements and budget.
+  </Accordion>
+
+  <Accordion title="What meeting platforms does Anarlog work with?">
+    Any application that plays audio through macOS — which means everything. Common examples include:
+
+    - **Video calls**: Zoom, Google Meet, Microsoft Teams, Webex, Slack huddles
+    - **Phone calls** routed through your Mac
+    - **In-person meetings** picked up by your Mac's microphone
+    - **Webinars and recorded playback**
+
+    Because Anarlog captures system audio rather than integrating with each platform individually, it works with any current or future app without needing per-platform updates.
+  </Accordion>
+
+  <Accordion title="Can I sync my notes to other devices?">
+    Yes. Because your notes are plain `.md` files in a folder you control, you can sync them with any file-sync service you already use — iCloud Drive, Dropbox, Syncthing, git, or anything else. Just point multiple devices at the same synced folder. Anarlog adds no proprietary layer on top of the files.
+  </Accordion>
+
+  <Accordion title="Is Anarlog the same as Hyprnote or Char?">
+    Kind of — here's the lineage. The app started as **Hyprnote**, was briefly renamed **Char**, and is now called **Anarlog** (relicensed from GPL to MIT in the process). The name is an anagram of *Granola* — the meeting tool many users compare it to.
+
+    **Char** is now a completely separate product: an AI notepad focused on completing your todos. It shares the same founding team but is a different app with a different codebase. If you're here for meeting notes, you're in the right place — Anarlog is the open-source, local-first meeting notetaker.
+  </Accordion>
+
+  <Accordion title="Can I use Anarlog with Obsidian?">
+    Yes. In **Settings → Storage**, set your vault path to point at your Obsidian vault folder. All meeting notes will be written there as `.md` files that Obsidian can index immediately. You can use Obsidian's graph view, backlinks, and plugins with your meeting notes just like any other note in your vault.
+  </Accordion>
+
+  <Accordion title="How do I report a bug or request a feature?">
+    Open an issue on GitHub: [github.com/fastrepl/anarlog/issues](https://github.com/fastrepl/anarlog/issues). The project is community-maintained and both bug reports and feature requests are welcome. If you want to contribute a fix yourself, pull requests are open — it's MIT licensed.
+  </Accordion>
+
+</AccordionGroup>

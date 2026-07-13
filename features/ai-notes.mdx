@@ -1,0 +1,46 @@
+---
+title: "AI-Powered Meeting Summaries in Anarlog"
+sidebarTitle: "AI Notes"
+description: "Anarlog combines your written notes with the live transcript and generates a structured AI summary using the LLM provider of your choice."
+---
+
+After your meeting, Anarlog can turn your raw transcript and any notes you jotted down into a polished, structured summary. Click the **Enhance** button (the sparkle icon ✦ in the note header) and Anarlog sends your content to your configured LLM, which fills out each section of your chosen template. The result appears as a new tab in the note editor, ready to review, copy, or share.
+
+## How enhancement works
+
+When you trigger enhancement, Anarlog merges two sources of content:
+
+1. **Your manual notes** — anything you typed into the Memos tab during the meeting
+2. **The live transcript** — the full speech-to-text output from your recording
+
+Both are sent to your LLM along with the structure defined by your active template. The model fills in each section (for example, "Action Items", "Key Decisions", "Summary") based on what was actually said. Your original notes are preserved untouched in the Memos tab.
+
+<Note>
+  Enhancement requires a configured LLM provider. If you haven't set one up yet, see [AI Intelligence](/ai/intelligence) to connect OpenAI, Anthropic, Google, or a local Ollama model.
+</Note>
+
+## The Notes editor
+
+The note editor gives you a dedicated space to write during your meeting. Switch to the **Memos** tab (the align-left icon) at any time while recording is active to type free-form notes, agenda items, or questions. These are saved instantly and will be included in the next enhancement run.
+
+The editor supports standard Markdown formatting — headings, lists, bold, italic, and inline code — so your notes are readable immediately and also export cleanly.
+
+## Enhance button and note tabs
+
+Once a transcript or memo exists for a session, the note header shows a set of tabs:
+
+- **Summary** (sparkle icon) — the AI-generated view for this session
+- **Memos** (align-left icon) — your handwritten notes
+- **Transcript** (waveform icon) — the full speech-to-text output
+
+Click the active **Summary** tab to reveal a dropdown for switching templates or triggering a regeneration. A spinner inside the tab icon indicates that generation is in progress.
+
+## Multiple AI versions
+
+You can generate more than one AI summary per session — for instance, one using the General template and another using a custom Interview template. Click the **+** icon or select a different template from the Summary tab dropdown to create an additional enhanced note. Each version appears as its own tab and is stored independently.
+
+To remove an extra summary tab, right-click it and choose **Remove**.
+
+<Tip>
+  Set up a template before you enhance to control exactly which sections appear in your AI summary. For example, a standup template might include "Yesterday", "Today", and "Blockers", while an interview template could have "Candidate Strengths" and "Follow-up Questions". See [Templates](/features/templates) to get started.
+</Tip>
